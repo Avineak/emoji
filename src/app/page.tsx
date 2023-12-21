@@ -1,6 +1,50 @@
+"use client";
+import { useEffect, useState } from "react";
+
 import Link from "../../node_modules/next/link";
+import {
+  useSearchParams,
+  usePathname,
+} from "../../node_modules/next/navigation";
+import { emojiData } from "./emoji";
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+  const [listedEmoji, setListedEmoji] = useState(emojiData.slice(0, 50));
+
+  const params = useSearchParams();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const searchTerm = params.get("search");
+
+    if (searchTerm) {
+      setSearch(searchTerm);
+      searchEmoji(searchTerm);
+    }
+  }, [setSearch, params]);
+
+  function updateSearch(value: string) {
+    const currentParams = new URLSearchParams(window.location.search);
+    currentParams.set("search", value);
+    const newUrl = `${pathname}?${currentParams.toString()}`;
+    history.pushState({ path: newUrl }, "", newUrl);
+    const popstateEvent = new PopStateEvent("popstate");
+    window.dispatchEvent(popstateEvent);
+    setSearch(value);
+    searchEmoji(value);
+  }
+
+  function searchEmoji(value: string) {
+    const filter = emojiData.filter((emo) =>
+      emo.keywords.some((keyword) =>
+        keyword.includes(value.replaceAll("_", " ").trim())
+      )
+    );
+
+    setListedEmoji(filter.slice(0, 50));
+  }
+
   return (
     <main className="flex min-h-screen flex-col">
       <header
@@ -23,13 +67,15 @@ export default function Home() {
           <strong>Search</strong>, <strong>copy</strong>, and{" "}
           <strong>paste</strong> emojis wherever you like
         </div>
-        <div className="text-black font-light text-20">
+        <div className="text-black font-light text-20 leading-112">
           Copy and paste 400+ emojis in just a single mouse click! Add fun to
           your communication for FREE!
         </div>
         <input
           className="w-[88%] text-20  border-solid border-2 border-gray-300 p-[5px] rounded-[10px] pr-[20px] text-black"
           placeholder="Search Emojis"
+          value={search}
+          onChange={(e) => updateSearch(e.target.value)}
         />
 
         <div className="h-[250px]"></div>
@@ -48,8 +94,14 @@ export default function Home() {
             </ul>
             <div>Face Emoji</div>
           </div>
-          <div>
-            <img />
+          <div className="flex flex-row flex-wrap gap-[30px]">
+            {listedEmoji.map((emo, idx) => (
+              <div key={idx} className="text-black">
+                <div className="text-[60px] w-[60px] h-[60px] unselectable cursor-pointer">
+                  {emo.emoji}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
