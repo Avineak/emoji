@@ -20,3 +20,10 @@ body {
   color: rgb(var(--foreground-rgb));
   background: var(--foreground-rgb);
 }
+
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
