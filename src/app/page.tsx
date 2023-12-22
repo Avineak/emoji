@@ -38,7 +38,7 @@ export default function Home() {
   function searchEmoji(value: string) {
     const filter = emojiData.filter((emo) =>
       emo.keywords.some((keyword) =>
-        keyword.includes(value.replaceAll("_", " ").trim())
+        keyword.includes(value.replaceAll(" ", "_").trim())
       )
     );
 
