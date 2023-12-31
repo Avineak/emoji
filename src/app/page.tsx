@@ -7,6 +7,7 @@ import emojiData from "./emoji.json";
 import Link from "../../node_modules/next/link";
 import { useRouter } from "../../node_modules/next/navigation";
 import { CHART_CATEGORIES, SUGGESTED_CATEGORIES } from "../consts";
+import { capitalizeFirstLetter } from "root/utils";
 
 const SuggestedCategory = ({
   label,
@@ -34,7 +35,15 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const visibleEmoji = emojiData.slice(0, 50);
+    const filteredByCategory = emojiData.filter((d) =>
+      d.cg.includes(selectedCategory)
+    );
+
+    const visibleEmoji =
+      selectedCategory === "flags"
+        ? filteredByCategory
+        : filteredByCategory.slice(0, 100);
+
     setListedEmoji(visibleEmoji);
   }, [selectedCategory, setListedEmoji]);
 
@@ -101,13 +110,13 @@ export default function Home() {
                     key={category}
                     className="cursor-pointer"
                     onClick={() => {
-                      setSelectedCategory(category);
+                      setSelectedCategory(category.toLocaleLowerCase());
                     }}
                   >
                     {selectedCategory === category ? (
-                      <strong>{category}</strong>
+                      <strong>{capitalizeFirstLetter(category)}</strong>
                     ) : (
-                      category
+                      capitalizeFirstLetter(category)
                     )}
                   </li>
                 ))}

@@ -11,12 +11,12 @@ export const SUGGESTED_CATEGORIES = [
 ]
 
 export const CHART_CATEGORIES = [
-    "Trending",
-    "Smiley",
-    "People",
-    "Animals",
-    "Foods",
-    "Activities",
-    "Travel",
-    "Flags"
+    "trending",
+    "smiley",
+    "people",
+    "animals",
+    "foods",
+    "activities",
+    "travel",
+    "flags"
 ]
