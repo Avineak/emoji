@@ -17,11 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-      <Toaster
-        position="top-center"
-        containerStyle={{ position: "absolute", top: "48px" }}
-      />
+      <body className={inter.className}>
+        {children}
+        <Toaster
+          position="top-center"
+          containerStyle={{ position: "absolute", top: "48px" }}
+        />
+      </body>
     </html>
   );
 }
