@@ -1,57 +1,53 @@
 "use client";
 import { useEffect, useState } from "react";
+import EmojiBox from "root/components/EmojiBox";
+import Input from "root/components/Input";
 
+import emojiData from "./emoji.json";
 import Link from "../../node_modules/next/link";
-import {
-  useSearchParams,
-  usePathname,
-} from "../../node_modules/next/navigation";
-import { emojiData } from "./emoji";
+import { useRouter } from "../../node_modules/next/navigation";
+import { CHART_CATEGORIES, SUGGESTED_CATEGORIES } from "../consts";
+
+const SuggestedCategory = ({
+  label,
+  onClick,
+}: {
+  label: string;
+  onClick: () => void;
+}) => {
+  return (
+    <span
+      className="border border-solid border-gray-600 py-[6px] px-[18px] text-[16px] leading-7  rounded-[10px] text-black cursor-pointer "
+      style={{ boxShadow: "0px 4px 4px 0px rgba(56, 45, 189, 0.25)" }}
+      onClick={onClick}
+    >
+      {label}
+    </span>
+  );
+};
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [listedEmoji, setListedEmoji] = useState(emojiData.slice(0, 50));
+  const [selectedCategory, setSelectedCategory] = useState(CHART_CATEGORIES[0]);
 
-  const params = useSearchParams();
-  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
-    const searchTerm = params.get("search");
-
-    if (searchTerm) {
-      setSearch(searchTerm);
-      searchEmoji(searchTerm);
-    }
-  }, [setSearch, params]);
-
-  function updateSearch(value: string) {
-    const currentParams = new URLSearchParams(window.location.search);
-    currentParams.set("search", value);
-    const newUrl = `${pathname}?${currentParams.toString()}`;
-    history.pushState({ path: newUrl }, "", newUrl);
-    const popstateEvent = new PopStateEvent("popstate");
-    window.dispatchEvent(popstateEvent);
-    setSearch(value);
-    searchEmoji(value);
-  }
-
-  function searchEmoji(value: string) {
-    const filter = emojiData.filter((emo) =>
-      emo.keywords.some((keyword) =>
-        keyword.includes(value.replaceAll(" ", "_").trim())
-      )
-    );
-
-    setListedEmoji(filter.slice(0, 50));
-  }
+    const visibleEmoji = emojiData.slice(0, 50);
+    setListedEmoji(visibleEmoji);
+  }, [selectedCategory, setListedEmoji]);
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <>
       <header
-        className="flex flex-row h-[87px] w-full sticky top-0 bg-amber-100 text-black items-center px-[48px] font-karla justify-between mb-[60px] text-20"
+        className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[26px] text-20 text-white"
         style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
       >
-        <Link href="/">Emojis</Link>
+        <Link href="/" className="font-extrabold">
+          emoji JOY
+        </Link>
+        <div className="font-extrabold">Click the emoji to copy!</div>
         <ol className="flex flex-row gap-[34px]">
           <li>
             <Link href="/blogs">Blog</Link>
@@ -61,50 +57,73 @@ export default function Home() {
           </li>
         </ol>
       </header>
-
-      <div className="px-[48px]">
-        <div className="text-[40px] leading-112 text-black">
-          <strong>Search</strong>, <strong>copy</strong>, and{" "}
-          <strong>paste</strong> emojis wherever you like
-        </div>
-        <div className="text-black font-light text-20 leading-112">
-          Copy and paste 400+ emojis in just a single mouse click! Add fun to
-          your communication for FREE!
-        </div>
-        <input
-          className="w-[88%] text-20  border-solid border-2 border-gray-300 p-[5px] rounded-[10px] pr-[20px] text-black"
-          placeholder="Search Emojis"
-          value={search}
-          onChange={(e) => updateSearch(e.target.value)}
-        />
-
-        <div className="h-[250px]"></div>
-
-        <div>
-          <div className="h-[71px] flex justify-between text-black bg-gray-200 items-center px-[48px]">
-            <ul className="flex flex-row gap-[44px]">
-              <li>All</li>
-              <li>Random Pick</li>
-              <li>People</li>
-              <li>Animals</li>
-              <li>Foods</li>
-              <li>Activities</li>
-              <li>Travel</li>
-              <li>Flags</li>
-            </ul>
-            <div>Face Emoji</div>
+      <main className="flex min-h-screen flex-col px-[196px]">
+        <div className="text-center">
+          <div className="text-[24px]  text-black leading-7 mb-[14px]">
+            <strong>Search</strong>, <strong>copy</strong>, and{" "}
+            <strong>paste</strong> emojis in <strong>your content!</strong>
           </div>
-          <div className="flex flex-row flex-wrap gap-[30px]">
-            {listedEmoji.map((emo, idx) => (
-              <div key={idx} className="text-black">
-                <div className="text-[60px] w-[60px] h-[60px] unselectable cursor-pointer">
-                  {emo.emoji}
-                </div>
-              </div>
+          <div className="text-black font-light text-[20px] leading-7 mb-[24px]">
+            Copy and paste emojis in just a <strong>single mouse click</strong>!
+            Add fun to your content for FREE!
+          </div>
+
+          <Input
+            value={search}
+            onChange={(e: any) => {
+              const searchTerm = e.target.value;
+              setSearch(searchTerm);
+              router.push(`/search?q=${searchTerm}`);
+            }}
+          />
+
+          <div className="flex gap-[16px] justify-center">
+            {SUGGESTED_CATEGORIES.map((category) => (
+              <SuggestedCategory
+                label={category}
+                key={category}
+                onClick={() => {
+                  router.push(`/search?q=${category}`);
+                }}
+              />
             ))}
           </div>
+
+          <div className="mb-[36px] mt-[44px] text-left text-black text-[24px]">
+            😕 <strong>Not Sure?</strong> Copy from the quick list below!
+          </div>
+
+          <div>
+            <div className="h-[50px] flex justify-between text-black bg-[#ACAAC4] items-center px-[128px] rounded-[10px]">
+              <ul className="flex justify-between w-[100%]">
+                {CHART_CATEGORIES.map((category) => (
+                  <li
+                    key={category}
+                    className="cursor-pointer"
+                    onClick={() => {
+                      setSelectedCategory(category);
+                    }}
+                  >
+                    {selectedCategory === category ? (
+                      <strong>{category}</strong>
+                    ) : (
+                      category
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-row flex-wrap gap-[18px] mx-[78px] pt-[32px]">
+              {listedEmoji.map((emo, idx) => (
+                <div key={idx} className="text-black">
+                  <EmojiBox emoji={emo.ch} description={emo.sn} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
