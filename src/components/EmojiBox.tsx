@@ -1,3 +1,4 @@
+"use client";
 import { toast } from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
 import { capitalizeFirstLetter } from "root/utils";

@@ -1,3 +1,4 @@
+"use client";
 import { ICONS } from "../app/icons";
 
 const Input = ({

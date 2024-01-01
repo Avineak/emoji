@@ -1,19 +1,23 @@
 "use client";
-import { useEffect, useState } from "react";
-import EmojiBox from "root/components/EmojiBox";
-import Input from "root/components/Input";
-
-import Link from "../../../node_modules/next/link";
+import { useCallback, useEffect, useState } from "react";
 import {
   useSearchParams,
   usePathname,
   useRouter,
 } from "../../../node_modules/next/navigation";
+
+import EmojiBox from "root/components/EmojiBox";
+import Input from "root/components/Input";
 import emojiData from "../emoji.json";
+import { charMatch } from "root/utils";
+import { useDebounce } from "root/CustomHooks";
+import { SEARCH_DELAY } from "root/consts";
+
+const DEFAULT_EMOJI_LIST = emojiData.slice(0, 50);
 
 export default function Search() {
   const [search, setSearch] = useState("");
-  const [listedEmoji, setListedEmoji] = useState(emojiData.slice(0, 50));
+  const [listedEmoji, setListedEmoji] = useState(DEFAULT_EMOJI_LIST);
 
   const params = useSearchParams();
   const pathname = usePathname();
@@ -21,14 +25,39 @@ export default function Search() {
 
   const searchTerm = params.get("q");
 
-  useEffect(() => {
-    if (searchTerm) {
-      setSearch(searchTerm);
-      searchEmoji(searchTerm);
-    }
-  }, [setSearch, searchTerm]);
+  const searchEmoji = useCallback(
+    async (value: string) => {
+      const fuseResults = await charMatch(value, emojiData);
+
+      const filter = fuseResults.map((res) => res.item);
+
+      setListedEmoji(filter.slice(0, 50));
+    },
+    [setListedEmoji]
+  );
+
+  const debouncedSearch = useDebounce(searchEmoji, SEARCH_DELAY);
+
+  useEffect(
+    () => {
+      if (searchTerm) {
+        setSearch(searchTerm);
+        searchEmoji(searchTerm);
+        return;
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   function updateSearch(value: string) {
+    if (!value) {
+      setSearch("");
+      setListedEmoji(DEFAULT_EMOJI_LIST);
+      router.push("/search");
+      return;
+    }
+
     const currentParams = new URLSearchParams(window.location.search);
     currentParams.set("q", value);
     const newUrl = `${pathname}?${currentParams.toString()}`;
@@ -36,17 +65,7 @@ export default function Search() {
     const popstateEvent = new PopStateEvent("popstate");
     window.dispatchEvent(popstateEvent);
     setSearch(value);
-    searchEmoji(value);
-  }
-
-  function searchEmoji(value: string) {
-    const filter = emojiData.filter((emo) =>
-      emo.kw.some((keyword) =>
-        keyword.includes(value.replaceAll(" ", "_").trim())
-      )
-    );
-
-    setListedEmoji(filter.slice(0, 50));
+    debouncedSearch(value);
   }
 
   return (
