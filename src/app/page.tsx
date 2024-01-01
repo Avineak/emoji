@@ -49,23 +49,6 @@ export default function Home() {
 
   return (
     <>
-      <header
-        className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[26px] text-20 text-white"
-        style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      >
-        <Link href="/" className="font-extrabold">
-          emoji JOY
-        </Link>
-        <div className="font-extrabold">Click the emoji to copy!</div>
-        <ol className="flex flex-row gap-[34px]">
-          <li>
-            <Link href="/blogs">Blog</Link>
-          </li>
-          <li>
-            <Link href="/about">About Us</Link>
-          </li>
-        </ol>
-      </header>
       <main className="flex min-h-screen flex-col px-[196px]">
         <div className="text-center">
           <div className="text-[24px]  text-black leading-7 mb-[14px]">
