@@ -6,13 +6,19 @@ export const capitalizeFirstLetter = (str: string): string => {
 };
 
 export const charMatch = async (pattern: string, emojiData: any[]) => {
-  const Fuse = await import("fuse.js")
+  const Fuse = await import("fuse.js");
   const fuseOptions = {
     keys: ["cl", "kw"],
-    threshold: 0.3
+    threshold: 0.3,
   };
 
   const fuse = new Fuse.default(emojiData, fuseOptions);
 
   return fuse.search(pattern);
+};
+
+export const pushBrowserHistory = (url: string) => {
+  history.pushState({ path: url }, "", url);
+  const popstateEvent = new PopStateEvent("popstate");
+  window.dispatchEvent(popstateEvent);
 };

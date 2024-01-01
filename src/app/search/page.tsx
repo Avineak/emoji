@@ -9,7 +9,7 @@ import {
 import EmojiBox from "root/components/EmojiBox";
 import Input from "root/components/Input";
 import emojiData from "../emoji.json";
-import { charMatch } from "root/utils";
+import { charMatch, pushBrowserHistory } from "root/utils";
 import { useDebounce } from "root/CustomHooks";
 import { SEARCH_DELAY } from "root/consts";
 
@@ -54,16 +54,14 @@ export default function Search() {
     if (!value) {
       setSearch("");
       setListedEmoji(DEFAULT_EMOJI_LIST);
-      router.push("/search");
+      pushBrowserHistory(pathname);
       return;
     }
 
     const currentParams = new URLSearchParams(window.location.search);
     currentParams.set("q", value);
     const newUrl = `${pathname}?${currentParams.toString()}`;
-    history.pushState({ path: newUrl }, "", newUrl);
-    const popstateEvent = new PopStateEvent("popstate");
-    window.dispatchEvent(popstateEvent);
+    pushBrowserHistory(newUrl);
     setSearch(value);
     debouncedSearch(value);
   }
