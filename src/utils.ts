@@ -1,7 +1,3 @@
-// import * as Fuse from "fuse.js";
-
-// const fuse = await import("fuse.js");
-
 export const capitalizeFirstLetter = (str: string): string => {
   if (!str) return "";
   if (str.length === 1) return str.toUpperCase();
