@@ -9,7 +9,7 @@ export const charMatch = async (pattern: string, emojiData: any[]) => {
   const Fuse = await import("fuse.js")
   const fuseOptions = {
     keys: ["cl", "kw"],
-    threshold: 0.4
+    threshold: 0.3
   };
 
   const fuse = new Fuse.default(emojiData, fuseOptions);
