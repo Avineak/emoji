@@ -29,11 +29,6 @@ export default function Search() {
   }, [setSearch, searchTerm]);
 
   function updateSearch(value: string) {
-    if (!value) {
-      router.push("/");
-      return;
-    }
-
     const currentParams = new URLSearchParams(window.location.search);
     currentParams.set("q", value);
     const newUrl = `${pathname}?${currentParams.toString()}`;

@@ -77,14 +77,20 @@ export default function Home() {
             Add fun to your content for FREE!
           </div>
 
-          <Input
-            value={search}
-            onChange={(e: any) => {
-              const searchTerm = e.target.value;
-              setSearch(searchTerm);
-              router.push(`/search?q=${searchTerm}`);
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              router.push(`/search?q=${search}`);
             }}
-          />
+          >
+            <Input
+              value={search}
+              onChange={(e: any) => {
+                const searchTerm = e.target.value;
+                setSearch(searchTerm);
+              }}
+            />
+          </form>
 
           <div className="flex gap-[16px] justify-center">
             {SUGGESTED_CATEGORIES.map((category) => (
