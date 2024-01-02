@@ -9,7 +9,7 @@ import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "😄 Emojijoy — simply copy and paste Emoji 😎🤠😂🤷‍♀️🤷‍♂️",
+  title: "Emojijoy — simply copy and paste Emoji 😎🤠😂🤷‍♀️🤷‍♂️",
   description: "Find the emoji you are looking for...",
 };
 
