@@ -31,10 +31,10 @@ export default function RootLayout({
           <div className="font-extrabold">Click the emoji to copy!</div>
           <ol className="flex flex-row gap-[34px]">
             <li>
-              <Link href="/blogs">Blog</Link>
+              {/* <Link href="/blogs">Blog</Link> */}
             </li>
             <li>
-              <Link href="/about">About Us</Link>
+              {/* <Link href="/about">About Us</Link> */}
             </li>
           </ol>
         </header>
