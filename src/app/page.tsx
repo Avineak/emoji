@@ -56,7 +56,7 @@ export default function Home() {
             <strong>paste</strong> emojis in <strong>your content!</strong>
           </div>
           <div className="text-black font-light text-[20px] leading-7 mb-[24px]">
-            Copy and paste emojis in just a <strong>single mouse click</strong>!
+            Copy and paste emojis in just a <strong>single mouse click</strong>.
             Add fun to your content for FREE!
           </div>
 
