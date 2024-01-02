@@ -41,7 +41,7 @@ export default function RootLayout({
         {children}
         <Toaster
           position="top-center"
-          containerStyle={{ position: "absolute", top: "48px" }}
+          containerStyle={{ position: "fixed", top: "48px" }}
         />
       </body>
     </html>
