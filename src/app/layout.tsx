@@ -9,7 +9,7 @@ import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Emoji Joy",
+  title: "😄 Emojijoy — simply copy and paste Emoji 😎🤠😂🤷‍♀️🤷‍♂️",
   description: "Find the emoji you are looking for...",
 };
 
@@ -20,6 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/icon?<generated>" type="image/png" sizes="32x32" />
       <body className={inter.className}>
         <header
           className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[26px] text-20 text-white"
