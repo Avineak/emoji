@@ -15,7 +15,7 @@ const EmojiBox = ({
       <div
         data-tooltip-id={`tooltip-emoji-${emoji}`}
         data-tooltip-content={capitalizeFirstLetter(description)}
-        className="flex text-[74px] w-[95px] h-[104px] bg-[#E6E6E6] align-middle justify-center rounded-[10px] cursor-pointer hover:bg-[#D9D9D9]"
+        className="flex text-[74px] w-[95px] h-[104px] md:bg-[#E6E6E6] align-middle justify-center rounded-[10px] cursor-pointer md:hover:bg-[#D9D9D9]"
         onClick={() => {
           navigator.clipboard.writeText(emoji);
           toast.success(`Copied Emoji-"${emoji}"`);

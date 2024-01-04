@@ -9,7 +9,7 @@ const Input = ({
   onChange: (e: any) => void;
 }) => {
   return (
-    <div className="flex border-solid border-2 border-[#706F7F] rounded-[15px] mb-[24px] h-[50px] items-center pl-[10px] overflow-hidden">
+    <div className="flex border-solid border-2 border-[#706F7F] rounded-[15px] mb-[24px] h-[50px] items-center pl-[10px] overflow-hidden md-w-[100%] sm-w-[90%] w-[90%] m-auto">
       {ICONS.search}
       <input
         className="text-20 p-[5px] pr-[20px] text-black outline-none border-none flex-1"

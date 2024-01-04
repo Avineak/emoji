@@ -18,7 +18,7 @@ const SuggestedCategory = ({
 }) => {
   return (
     <span
-      className="border border-solid border-gray-600 py-[6px] px-[18px] text-[16px] leading-7  rounded-[10px] text-black cursor-pointer "
+      className="border border-solid border-gray-600 py-[2px] sm:p-[6px] px-[18px] text-[16px] leading-7  rounded-[10px] text-black cursor-pointer "
       style={{ boxShadow: "0px 4px 4px 0px rgba(56, 45, 189, 0.25)" }}
       onClick={onClick}
     >
@@ -49,13 +49,13 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col px-[196px]">
+      <main className="flex min-h-screen flex-col m-2 sm:m-4 md:p-8 lg:m-12 xl:m-16">
         <div className="text-center">
-          <div className="text-[24px]  text-black leading-7 mb-[14px]">
+          <div className="text-[24px] text-black leading-7 mb-[14px]">
             <strong>Search</strong>, <strong>copy</strong>, and{" "}
             <strong>paste</strong> emojis in <strong>your content!</strong>
           </div>
-          <div className="text-black font-light text-[20px] leading-7 mb-[24px]">
+          <div className="text-black font-light text-[20px] leading-7 mb-[24px] hidden sm:block">
             Copy and paste emojis in just a <strong>single mouse click</strong>.
             Add fun to your content for FREE!
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
             />
           </form>
 
-          <div className="flex gap-[16px] justify-center">
+          <div className="flex gap-[16px] justify-center flex-row flex-wrap w-[100%]">
             {SUGGESTED_CATEGORIES.map((category) => (
               <SuggestedCategory
                 label={category}
@@ -92,12 +92,12 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="h-[50px] flex justify-between text-black bg-[#ACAAC4] items-center px-[128px] rounded-[10px]">
-              <ul className="flex justify-between w-[100%]">
+            <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[24px] lg:px-[128px] rounded-[10px]">
+              <ul className="flex md:justify-between w-[100%] gap-[10px] flex-wrap md:gap-[0px] m-auto">
                 {CHART_CATEGORIES.map((category) => (
                   <li
                     key={category}
-                    className="cursor-pointer"
+                    className="cursor-pointer rounded-[10px] bg-[#D9D9D9] px-[12px] py-[8px] md:bg-transparent"
                     onClick={() => {
                       setSelectedCategory(category.toLocaleLowerCase());
                     }}
@@ -112,7 +112,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="flex flex-row flex-wrap gap-[18px] mx-[78px] pt-[32px]">
+            <div className="flex flex-row flex-wrap gap-[18px] mx-[16px] sm:mx-[32px] md:mx-[78px] pt-[32px]">
               {listedEmoji.map((emo, idx) => (
                 <div key={idx} className="text-black">
                   <EmojiBox emoji={emo.ch} description={emo.sn} />

@@ -21,7 +21,6 @@ export default function Search() {
 
   const params = useSearchParams();
   const pathname = usePathname();
-  const router = useRouter();
 
   const searchTerm = params.get("q");
 
@@ -68,8 +67,8 @@ export default function Search() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col px-[196px]">
-        <div className="text-center">
+      <main className="flex min-h-screen flex-col  m-2 sm:m-4 md:p-8 lg:m-12 xl:m-16">
+        <div className="text-center w-[100%]">
           <Input
             value={search}
             onChange={(e: any) => {
@@ -77,7 +76,7 @@ export default function Search() {
             }}
           />
           <div>
-            <div className="flex flex-row flex-wrap gap-[18px] mx-[70px] pt-[32px]">
+            <div className="flex flex-row flex-wrap gap-[18px] md:mx-[70px] pt-[32px] justify-center">
               {listedEmoji.map((emo, idx) => (
                 <div key={idx} className="text-black">
                   <EmojiBox emoji={emo.ch} description={emo.sn} />
