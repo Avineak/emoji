@@ -12,8 +12,9 @@ import Logo from "../assets/images/logo.png";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Emojijoy — simply copy and paste Emoji 😎🤠😂🤷‍♀️🤷‍♂️",
-  description: "Find the emoji you are looking for...",
+  title: "Emoji Joy – Easy copy and paste emoji in your content 🔍😝🙌👌",
+  description:
+    " 🎉 Explore a collection of emojis which is very easy to copy and paste into your content. It also has emoji lists for startups, people, love, the human experience, and more. 🌟✨😊🚀❤️",
 };
 
 export default function RootLayout({
