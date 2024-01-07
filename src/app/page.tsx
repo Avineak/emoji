@@ -1,11 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "../../node_modules/next/navigation";
+
 import EmojiBox from "root/components/EmojiBox";
 import Input from "root/components/Input";
-
 import emojiData from "./emoji.json";
-import Link from "../../node_modules/next/link";
-import { useRouter } from "../../node_modules/next/navigation";
 import { CHART_CATEGORIES, SUGGESTED_CATEGORIES } from "../consts";
 import { capitalizeFirstLetter } from "root/utils";
 

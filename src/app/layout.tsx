@@ -39,7 +39,10 @@ export default function RootLayout({
         sizes="128x128"
         type="image/png"
       />
-      <meta name="google-site-verification" content="ha35z7Ui7aGHZgMuvhd3hyqWoCoajTLQGd7Yf9Idu4A" />
+      <meta
+        name="google-site-verification"
+        content="ha35z7Ui7aGHZgMuvhd3hyqWoCoajTLQGd7Yf9Idu4A"
+      />
 
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-CTD77ZRZWJ"></Script>
       <Script id="google-analytics" strategy="afterInteractive">
@@ -68,6 +71,7 @@ export default function RootLayout({
           position="top-center"
           containerStyle={{ position: "fixed", top: "48px" }}
         />
+        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 mt-[48px] flex justify-center items-center">© Emoji joy, Inc. {new Date().getFullYear()}. We love our users!</footer>
       </body>
     </html>
   );
