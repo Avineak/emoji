@@ -7,7 +7,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 import "./globals.css";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logo.svg";
 
 const inter = Inter({ subsets: ["latin"] });
 
