@@ -51,7 +51,7 @@ export default function RootLayout({
       </Script>
       <body className={inter.className}>
         <header
-          className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[26px] text-20 text-white"
+          className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[16px] text-20 text-white"
           style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
         >
           <Link href="/" className="font-extrabold w-[100px]">
