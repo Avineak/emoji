@@ -30,6 +30,10 @@ export default function Search() {
 
       const filter = fuseResults.map((res) => res.item);
 
+      if (value.includes("flag")) {
+        setListedEmoji(filter);
+        return;
+      }
       setListedEmoji(filter.slice(0, 50));
     },
     [setListedEmoji]
@@ -67,7 +71,8 @@ export default function Search() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col  m-2 sm:m-4 md:p-8 lg:m-12 xl:m-16">
+      <main className="flex min-h-screen flex-col  m-2 sm:mx-4 md:mx-8 lg:mx-12 xl:mx-16">
+        <div className="h-[44px]"> </div>
         <div className="text-center w-[100%]">
           <Input
             value={search}

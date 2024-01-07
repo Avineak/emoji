@@ -29,8 +29,10 @@ const SuggestedCategory = ({
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [listedEmoji, setListedEmoji] = useState(emojiData.slice(0, 50));
   const [selectedCategory, setSelectedCategory] = useState(CHART_CATEGORIES[0]);
+  const [listedEmoji, setListedEmoji] = useState(
+    emojiData.filter((d) => d.cg.includes(CHART_CATEGORIES[0])).slice(0, 50)
+  );
 
   const router = useRouter();
 
@@ -42,7 +44,7 @@ export default function Home() {
     const visibleEmoji =
       selectedCategory === "flags"
         ? filteredByCategory
-        : filteredByCategory.slice(0, 100);
+        : filteredByCategory.slice(0, 50);
 
     setListedEmoji(visibleEmoji);
   }, [selectedCategory, setListedEmoji]);
@@ -88,12 +90,12 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[12px] lg:px-[64px]">
+            <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[12px] lg:px-[108px]">
               <ul className="flex md:justify-between w-[100%] gap-[10px] flex-wrap md:gap-[0px] m-auto">
                 {CHART_CATEGORIES.map((category) => (
                   <li
                     key={category}
-                    className="cursor-pointer rounded-[10px] bg-[#D9D9D9] px-[12px] py-[8px] md:bg-transparent"
+                    className="cursor-pointer rounded-[10px] bg-[#D9D9D9] px-[12px] py-[8px] md:bg-transparent hover:scale-110"
                     onClick={() => {
                       setSelectedCategory(category.toLocaleLowerCase());
                     }}
@@ -108,7 +110,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="flex flex-row flex-wrap gap-[18px] mx-[16px] sm:mx-[32px] md:mx-[78px] pt-[32px]">
+            <div className="flex flex-row flex-wrap gap-[18px] mx-[16px] sm:mx-[32px] md:mx-[78px] pt-[32px] justify-center">
               {listedEmoji.map((emo, idx) => (
                 <div key={idx} className="text-black">
                   <EmojiBox emoji={emo.ch} description={emo.sn} />
