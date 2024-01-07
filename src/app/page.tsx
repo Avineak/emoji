@@ -49,15 +49,11 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col m-2 sm:m-4 md:p-8 lg:m-12 xl:m-16">
+      <main className="flex min-h-screen flex-col mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">
         <div className="text-center">
-          <div className="text-[24px] text-black leading-7 mb-[14px]">
-            <strong>Search</strong>, <strong>copy</strong>, and{" "}
-            <strong>paste</strong> emojis in <strong>your content!</strong>
-          </div>
-          <div className="text-black font-light text-[20px] leading-7 mb-[24px] hidden sm:block">
-            Copy and paste emojis in just a <strong>single mouse click</strong>.
-            Add fun to your content for FREE!
+          <div className="text-[24px] text-black leading-7 mb-[16px]">
+            Easily <strong>jazz up your content</strong> with emojis – discover,
+            copy, and paste in a single click <strong>for free!</strong>
           </div>
 
           <form
@@ -87,12 +83,12 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mb-[36px] mt-[44px] text-left text-black text-[24px]">
+          <div className="mb-[12px] mt-[60px] text-left text-black text-[24px]">
             😕 <strong>Not Sure?</strong> Copy from the quick list below!
           </div>
 
           <div>
-            <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[24px] lg:px-[128px] rounded-[10px]">
+            <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[12px] lg:px-[64px]">
               <ul className="flex md:justify-between w-[100%] gap-[10px] flex-wrap md:gap-[0px] m-auto">
                 {CHART_CATEGORIES.map((category) => (
                   <li
