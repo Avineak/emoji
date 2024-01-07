@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Emoji Joy – Easy copy and paste emoji in your content 🔍😝🙌👌",
   description:
-    " 🎉 Explore a collection of emojis which is very easy to copy and paste into your content. It also has emoji lists for startups, people, love, the human experience, and more. 🌟✨😊🚀❤️",
+    "Discover a variety of easy-to-copy emojis on our website, covering startups, people, love, and more. 🌟✨😊🚀❤️",
 };
 
 export default function RootLayout({
