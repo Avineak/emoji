@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 
 import { Toaster } from "react-hot-toast";
 
 import "./globals.css";
 import Logo from "../assets/images/logo.svg";
 
-const inter = Inter({ subsets: ["latin"] });
+const lora = Lora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Emoji Joy – Easy copy and paste emoji in your content 🔍😝🙌👌",
@@ -49,7 +49,7 @@ export default function RootLayout({
 
   gtag('config', 'G-CTD77ZRZWJ');`}
       </Script>
-      <body className={inter.className}>
+      <body className={lora.className}>
         <header
           className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[16px] text-20 text-white"
           style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
