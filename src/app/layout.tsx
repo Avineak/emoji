@@ -39,6 +39,7 @@ export default function RootLayout({
         sizes="128x128"
         type="image/png"
       />
+      <meta name="google-site-verification" content="ha35z7Ui7aGHZgMuvhd3hyqWoCoajTLQGd7Yf9Idu4A" />
 
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-CTD77ZRZWJ"></Script>
       <Script id="google-analytics" strategy="afterInteractive">
