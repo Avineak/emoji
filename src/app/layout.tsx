@@ -52,6 +52,18 @@ export default function RootLayout({
 
   gtag('config', 'G-CTD77ZRZWJ');`}
       </Script>
+
+      <Script
+        type="text/javascript"
+        strategy="afterInteractive"
+        id="microsoft-clarity"
+      >
+        {`(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kouzx08xcq");`}
+      </Script>
       <body className={lora.className}>
         <header
           className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[16px] text-20 text-white"
@@ -71,7 +83,9 @@ export default function RootLayout({
           position="top-center"
           containerStyle={{ position: "fixed", top: "48px" }}
         />
-        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 mt-[48px] flex justify-center items-center">© Emoji joy, Inc. {new Date().getFullYear()}. We love our users!</footer>
+        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 mt-[48px] flex justify-center items-center">
+          © Emoji joy, Inc. {new Date().getFullYear()}. We love our users!
+        </footer>
       </body>
     </html>
   );
