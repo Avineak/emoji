@@ -22,7 +22,7 @@ export default function Search() {
   const params = useSearchParams();
   const pathname = usePathname();
 
-  const searchTerm = params.get("q");
+  const searchTerm = params?.get("q");
 
   const searchEmoji = useCallback(
     async (value: string) => {
@@ -57,7 +57,7 @@ export default function Search() {
     if (!value) {
       setSearch("");
       setListedEmoji(DEFAULT_EMOJI_LIST);
-      pushBrowserHistory(pathname);
+      pushBrowserHistory(pathname || "");
       return;
     }
 
@@ -71,7 +71,7 @@ export default function Search() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col  m-2 sm:mx-4 md:mx-8 lg:mx-12 xl:mx-16">
+      <div className="flex flex-col m-2 sm:mx-4 md:mx-8 lg:mx-12 xl:mx-16">
         <div className="h-[44px]"> </div>
         <div className="text-center w-[100%]">
           <Input
@@ -90,7 +90,7 @@ export default function Search() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }
