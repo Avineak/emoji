@@ -64,7 +64,7 @@ export default function RootLayout({
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "kouzx08xcq");`}
       </Script>
-      <body className={lora.className}>
+      <body className={`${lora.className} min-h-screen flex flex-col`}>
         <header
           className="flex flex-row h-[60px] w-full sticky top-0 bg-indigo-800 items-center px-[48px] font-karla justify-between mb-[16px] text-20 text-white"
           style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
@@ -73,17 +73,17 @@ export default function RootLayout({
             <Image src={Logo} alt="Logo" className="w-[100%]" />
           </Link>
           <div className="font-extrabold">Click the emoji to copy!</div>
-          <ol className="flex flex-row gap-[34px]">
+          <ol className="flex flex-row gap-[34px] hidden sm:block">
             <li>{/* <Link href="/blogs">Blog</Link> */}</li>
             <li>{/* <Link href="/about">About Us</Link> */}</li>
           </ol>
         </header>
-        {children}
+        <main className="flex-1 flex flex-col mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">{children}</main>
         <Toaster
           position="top-center"
           containerStyle={{ position: "fixed", top: "48px" }}
         />
-        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 mt-[48px] flex justify-center items-center">
+        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 mt-[48px] flex justify-center items-center text-white">
           © Emoji joy, Inc. {new Date().getFullYear()}. We love our users!
         </footer>
       </body>
