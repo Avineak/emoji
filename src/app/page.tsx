@@ -50,12 +50,12 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">
+      <div className="flex flex-col mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">
         <div className="text-center">
-          <div className="text-[24px] text-black leading-7 mb-[16px]">
+          <h2 className="text-[24px] text-black leading-7 mb-[16px]">
             Easily <strong>jazz up your content</strong> with emojis – discover,
             copy, and paste in a single click <strong>for free!</strong>
-          </div>
+          </h2>
 
           <form
             onSubmit={(e) => {
@@ -84,9 +84,9 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mb-[12px] mt-[60px] text-left text-black text-[24px]">
+          <h2 className="mb-[12px] mt-[60px] text-left text-black text-[24px]">
             😕 <strong>Not Sure?</strong> Copy from the quick list below!
-          </div>
+          </h2>
 
           <div>
             <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[12px] lg:px-[108px]">
@@ -118,7 +118,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }
