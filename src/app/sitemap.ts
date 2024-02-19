@@ -23,7 +23,7 @@ function generatePagesRoutes() {
   const lastModifiedDate = new Date().toISOString().substring(0, 8) + "01";
   const formattedDate = new Date(lastModifiedDate);
 
-  const xmlEntries = ["/", "/search"].map((route) => ({
+  const xmlEntries = ["/", "/search", "/404"].map((route) => ({
     url: `https://emojijoy.com${route}`,
     lastModified: formattedDate,
     changeFrequency: "yearly",
