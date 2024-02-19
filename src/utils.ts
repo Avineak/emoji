@@ -22,3 +22,25 @@ export const pushBrowserHistory = (url: string) => {
   const popstateEvent = new PopStateEvent("popstate");
   window.dispatchEvent(popstateEvent);
 };
+
+export const shortNameToSlug = (name: string) => {
+  const slug = name
+    .toLowerCase()
+    .split(" ")
+    .filter((chunk) => !chunk.includes("&"))
+    .join("_");
+
+  return slug;
+};
+
+export const nameFormatter = (name: string) => {
+  const nameChunks = name.split(" ");
+  const nameChunksCapitalize = nameChunks.map(capitalizeFirstLetter);
+  return nameChunksCapitalize.join(" ");
+};
+
+export const getRandomItemsFromArray = (num: number, arr: any[]) => {
+  const numberOfItems = Math.min(num, 5);
+  const shuffledArray = arr.sort(() => Math.random() - 0.5);
+  return shuffledArray.slice(0, numberOfItems);
+};
