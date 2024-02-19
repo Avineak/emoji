@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Custom404() {
   return (
-    <div className="">
+    <div className="mt-[30vh]">
       <div className="flex justify-center items-center flex-col">
         <h2 className="text-[48px] mb-[12px]">404  error!</h2>
         <Link href={"/"}>
