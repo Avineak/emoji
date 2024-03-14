@@ -31,3 +31,7 @@ body {
 .font-karla {
   font-family: 'Karla', sans-serif;
 }
+
+.blog-content > p {
+  margin: 10px 0px;
+}

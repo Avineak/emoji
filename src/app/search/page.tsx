@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from "react";
 import {
   useSearchParams,
   usePathname,
-  useRouter,
 } from "../../../node_modules/next/navigation";
 
 import EmojiBox from "root/components/EmojiBox";

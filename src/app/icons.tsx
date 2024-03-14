@@ -36,4 +36,22 @@ export const ICONS = {
       />
     </svg>
   ),
+
+  back: (
+    <svg
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21094 12.5026H19.7943M5.21094 12.5026L9.3776 8.33594M5.21094 12.5026L9.3776 16.6693"
+        stroke="#ACADAF"
+        stroke-width="2.08333"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  ),
 };

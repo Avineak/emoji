@@ -8,8 +8,9 @@ export const capitalizeFirstLetter = (str: string): string => {
 export const charMatch = async (pattern: string, emojiData: any[]) => {
   const Fuse = await import("fuse.js");
   const fuseOptions = {
-    keys: ["cl", "kw"],
+    keys: ["cl", "kw", "sn"],
     threshold: 0.3,
+    isCaseSensitive: false,
   };
 
   const fuse = new Fuse.default(emojiData, fuseOptions);
