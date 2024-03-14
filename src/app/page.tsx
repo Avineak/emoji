@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "../../node_modules/next/navigation";
 
-import EmojiBox from "root/components/EmojiBox";
+import StatelessEmojiBox from "root/components/StatelessEmojiBox";
 import Input from "root/components/Input";
 import emojiData from "./emoji.json";
 import { CHART_CATEGORIES, SUGGESTED_CATEGORIES } from "../consts";
-import { capitalizeFirstLetter } from "root/utils";
+import { capitalizeFirstLetter, shortNameToSlug } from "root/utils";
 
 const SuggestedCategory = ({
   label,
@@ -112,7 +112,11 @@ export default function Home() {
             <div className="flex flex-row flex-wrap gap-[18px] mx-[16px] sm:mx-[32px] md:mx-[78px] pt-[32px] justify-center">
               {listedEmoji.map((emo, idx) => (
                 <div key={idx} className="text-black">
-                  <EmojiBox emoji={emo.ch} description={emo.sn} />
+                  <StatelessEmojiBox
+                    route={`/emoji/${shortNameToSlug(emo.sn)}`}
+                    emoji={emo.ch}
+                    key={idx}
+                  />
                 </div>
               ))}
             </div>
