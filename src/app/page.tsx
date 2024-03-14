@@ -89,7 +89,7 @@ export default function Home() {
           </h2>
 
           <div>
-            <div className="h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[12px] lg:px-[108px]">
+            <div className="md:h-[50px] flex justify-between text-black md:bg-[#ACAAC4] items-center px-[0px] sm:px-[12px] lg:px-[108px]">
               <ul className="flex md:justify-between w-[100%] gap-[10px] flex-wrap md:gap-[0px] m-auto">
                 {CHART_CATEGORIES.map((category) => (
                   <li
