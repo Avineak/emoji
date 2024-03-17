@@ -33,6 +33,12 @@ export const getBlogBySlug = async (slug: string) => {
   } as IBlogsData;
 };
 
+export const getBlogSlugs = async (): Promise<String[]> => {
+  const files = fs.readdirSync(BLOGS_PATH);
+
+  return files.map((filename) => filename.replace(".mdx", ""));
+};
+
 export const getAllBlogs = async (): Promise<IBlogsData[]> => {
   const files = fs.readdirSync(BLOGS_PATH);
 
