@@ -113,7 +113,7 @@ export default function Home() {
               {listedEmoji.map((emo, idx) => (
                 <div key={idx} className="text-black">
                   <StatelessEmojiBox
-                    route={`/emoji/${shortNameToSlug(emo.sn)}`}
+                    route={`/${shortNameToSlug(emo.sn)}`}
                     emoji={emo.ch}
                     key={idx}
                   />

@@ -1,5 +1,5 @@
-import Emoji from "../../emoji.json";
-import Input from "../../../components/Input";
+import Emoji from "../emoji.json";
+import Input from "../../components/Input";
 import { redirect } from "next/navigation";
 import CopyButton from "root/components/CopyButton";
 import StatelessEmojiBox from "root/components/StatelessEmojiBox";

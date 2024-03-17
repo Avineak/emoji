@@ -9,7 +9,7 @@ async function generateEmojiPagesMap() {
 
   const xmlEntries = emojiData.map((data) => {
     return {
-      url: `https://emojijoy.com/emoji/${shortNameToSlug(data.sn)}`,
+      url: `https://emojijoy.com/${shortNameToSlug(data.sn)}`,
       lastModified: formattedDate,
       changeFrequency: "monthly",
       priority: 1,
