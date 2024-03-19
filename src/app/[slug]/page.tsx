@@ -77,7 +77,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           <div className="flex gap-[44px] mt-[16px]">
             {emojiData.relatedEmoji.map((data, idx) => (
               <StatelessEmojiBox
-                route={`/emoji/${data.slug}`}
+                route={`/${data.slug}`}
                 emoji={data.symbol}
                 key={idx}
               />
