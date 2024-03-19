@@ -71,7 +71,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
 
         <div className="md-w-[100%] sm-w-[90%] w-[90%] mx-auto gap-[60px] mt-[32px] mb-[32px]">
           <h1 className="text-[24px] font-bold md-w-[100%] sm-w-[90%] w-[90%]">
-            Related emojis
+            Emoji you may like
           </h1>
 
           <div className="flex gap-[44px] mt-[16px]">

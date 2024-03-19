@@ -8,9 +8,10 @@ import {
 import EmojiBox from "root/components/EmojiBox";
 import Input from "root/components/Input";
 import emojiData from "../emoji.json";
-import { charMatch, pushBrowserHistory } from "root/utils";
+import { charMatch, pushBrowserHistory, shortNameToSlug } from "root/utils";
 import { useDebounce } from "root/CustomHooks";
 import { SEARCH_DELAY } from "root/consts";
+import StatelessEmojiBox from "root/components/StatelessEmojiBox";
 
 const DEFAULT_EMOJI_LIST = emojiData.slice(0, 50);
 
@@ -83,7 +84,11 @@ export default function Search() {
             <div className="flex flex-row flex-wrap gap-[18px] md:mx-[70px] pt-[32px] justify-center">
               {listedEmoji.map((emo, idx) => (
                 <div key={idx} className="text-black">
-                  <EmojiBox emoji={emo.ch} description={emo.sn} />
+                  <StatelessEmojiBox
+                    route={`/${shortNameToSlug(emo.sn)}`}
+                    emoji={emo.ch}
+                    key={idx}
+                  />
                 </div>
               ))}
             </div>
