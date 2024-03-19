@@ -29,7 +29,7 @@ export const shortNameToSlug = (name: string) => {
     .toLowerCase()
     .split(" ")
     .filter((chunk) => !chunk.includes("&"))
-    .join("_");
+    .join("-");
 
   return slug;
 };
