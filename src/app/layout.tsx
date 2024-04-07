@@ -78,12 +78,12 @@ export default function RootLayout({
             <li>{/* <Link href="/about">About Us</Link> */}</li>
           </ol>
         </header>
-        <main className="flex-1 flex flex-col mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">{children}</main>
+        <main className="flex-1 flex flex-col">{children}</main>
         <Toaster
           position="top-center"
           containerStyle={{ position: "fixed", top: "48px" }}
         />
-        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 mt-[48px] flex justify-center items-center text-white">
+        <footer className="bg-[#382DBD] text-center h-[50px] bottom-0 flex justify-center items-center text-white">
           © Emoji joy, Inc. {new Date().getFullYear()}. We love our users!
         </footer>
       </body>
