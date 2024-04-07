@@ -50,7 +50,7 @@ export const ICONS = {
         stroke="#ACADAF"
         stroke-width="2.08333"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   ),
