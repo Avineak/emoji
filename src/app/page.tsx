@@ -7,6 +7,7 @@ import Input from "root/components/Input";
 import emojiData from "./emoji.json";
 import { CHART_CATEGORIES, SUGGESTED_CATEGORIES } from "../consts";
 import { capitalizeFirstLetter, shortNameToSlug } from "root/utils";
+import { HomePageSEOText } from "root/components/HomePageSEOText";
 
 const SuggestedCategory = ({
   label,
@@ -122,6 +123,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+      {/*  mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16 */}
+      <div className="border-[12px] border-solid border-[#382DBD] md:border-[24px] lg:border-[36px] xl:border-[48px]  border-b-0 border-t-[48px]  md:border-b-0 md:border-t-[48px]  lg:border-b-0 lg:border-t-[48px]  xl:border-b-0 xl:border-t-[48px]">
+        <HomePageSEOText />
       </div>
     </>
   );
