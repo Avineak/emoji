@@ -6,6 +6,59 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  /* Spacing */
+  --spacing-large: 192px;
+  --spacing-normal: 96px;
+  --spacing-small: 48px;
+  --spacing-tight: 24px;
+  --spacing-extra-tight: 12px;
+
+  /* Font Size */
+
+  /* heading */
+  --heading-extra-large: 96px;
+  --heading-large: 64px;
+  --heading-regular: 48px;
+  --heading-small: 32px;
+  --heading-extra-small: 24px;
+  --heading-tight: 18px;
+
+  /* body */
+  --body-text-large: 24px;
+  --body-text-regular: 18px;
+  --body-text-small: 16px;
+  --body-text-caption: 12px;
+
+  /* Theme */
+
+  /* colors */
+  --black: #000;
+  --white: #fffeeb;
+  --light-yellow: #fdf6dd;
+  --yellow: #fffa80;
+  --alternate-yellow: #fff966;
+  --green: #80ff8d;
+  --red: #ff8080;
+  --dark-gray: #262626;
+  --matte-black: #1d1d1d;
+  --matte-gray: #212121;
+  --light-gray: #ababaf;
+  --border-stroke: #313131;
+
+  /* brand */
+
+  --butter-yellow: var(--yellow);
+
+  --background-primary-black: var(--matte-black);
+  --background-primary-gray: var(--matte-gray);
+  --background-secondary-black: var(--black);
+
+  --text-primary: var(--light-yellow);
+  --text-light: var(--white);
+  --text-gray: var(--light-gray);
+  --text-yellow: var(--yellow);
+  --text-green: var(--green);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,11 +69,6 @@
   }
 }
 
-body {
-  color: black;
-  background: var(--foreground-rgb);
-}
-
 .unselectable {
   user-select: none;
   -moz-user-select: none;
@@ -29,9 +77,100 @@ body {
 }
 
 .font-karla {
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .blog-content > p {
   margin: 10px 0px;
+}
+
+@font-face {
+  font-family: "Karla Light";
+  src: url("../assets/fonts/Karla/Karla-Light.ttf");
+}
+
+@font-face {
+  font-family: "Karla Regular";
+  font-weight: 400;
+  src: url("../assets/fonts/Karla/Karla-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Karla Medium";
+  font-weight: 500;
+  src: url("../assets/fonts/Karla/Karla-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Karla SemiBold";
+  font-weight: 500;
+  src: url("../assets/fonts/Karla/Karla-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Karla Bold";
+  font-weight: 700;
+  src: url("../assets/fonts/Karla/Karla-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Karla Heavy";
+  font-weight: 800;
+  src: url("../assets/fonts/Karla/Karla-ExtraBold.ttf");
+}
+
+h2 {
+  font-weight: 600;
+  font-size: var(--heading-regular);
+  line-height: 120%;
+  font-family: "Karla SemiBold";
+
+  @media screen and (max-width: 768px) {
+    font-size: var(--heading-small);
+  }
+}
+
+h3 {
+  font-weight: 600;
+  font-size: var(--heading-small);
+  line-height: 120%;
+  font-family: "Karla SemiBold";
+
+  @media screen and (max-width: 768px) {
+    font-size: var(--heading-extra-small);
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: var(--heading-tight);
+  }
+}
+
+h4 {
+  font-weight: 500;
+  font-size: var(--heading-extra-small);
+  line-height: 130%;
+  font-family: "Karla SemiBold";
+
+  @media screen and (max-width: 768px) {
+    font-size: var(--heading-tight);
+  }
+}
+
+p {
+  font-size: var(--body-text-regular);
+  line-height: 150%;
+  color: var(--black);
+  font-family: "Karla Light";
+
+  @media screen and (max-width: 768px) {
+    font-size: var(--body-text-small);
+  }
+}
+
+html, body {
+  color: black;
+  background: var(--foreground-rgb);
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: "Karla Regular", sans-serif;
 }
