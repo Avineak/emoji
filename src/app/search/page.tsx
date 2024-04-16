@@ -26,9 +26,15 @@ export default function Search() {
 
   const searchEmoji = useCallback(
     async (value: string) => {
-      const fuseResults = await charMatch(value, emojiData);
+      const searchWords = value.split(" ").filter((v) => v);
 
-      const filter = fuseResults.map((res) => res.item);
+      const fuseResults = await Promise.all(
+        searchWords.map((searchWord) => charMatch(searchWord, emojiData))
+      );
+
+      const fuseResult = fuseResults.flat();
+
+      const filter = fuseResult.map((res) => res.item);
 
       if (value.includes("flag")) {
         setListedEmoji(filter);
