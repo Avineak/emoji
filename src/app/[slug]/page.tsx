@@ -9,7 +9,7 @@ import {
   shortNameToSlug,
 } from "root/utils";
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+function getRandomRelatedEmojis({ params }: { params: { slug: string } }) {
   const emojiData = Emoji.find(
     (emoji) => shortNameToSlug(emoji.sn) === params.slug
   );
@@ -37,8 +37,20 @@ async function searchItem(formData: FormData) {
   redirect(`/search?q=${searchTerm}`);
 }
 
+export const generateMetadata = ({ params } : any) => {
+  const emojiData = Emoji.find(
+    (emoji) => shortNameToSlug(emoji.sn) === params.slug
+  );
+
+  if (!emojiData) return {};
+
+  return {
+    title: `${emojiData.ch} ${emojiData.sn}`,
+  };
+};
+
 export default async function Blog({ params }: { params: { slug: string } }) {
-  const emojiData = generateMetadata({ params });
+  const emojiData = getRandomRelatedEmojis({ params });
 
   if (!emojiData) return <div>No Emoji found.</div>;
 
