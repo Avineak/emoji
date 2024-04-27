@@ -74,7 +74,7 @@ export default function RootLayout({
           </Link>
           <div className="font-extrabold">Click the emoji to copy!</div>
           <ol className="flex flex-row gap-[34px] hidden sm:block">
-            <li>{/* <Link href="/blogs">Blog</Link> */}</li>
+            <li><Link href="/blog">Blog</Link></li>
             <li>{/* <Link href="/about">About Us</Link> */}</li>
           </ol>
         </header>
