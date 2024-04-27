@@ -54,8 +54,7 @@ export default function Home() {
       <div className="flex flex-col mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">
         <div className="text-center">
           <h2 className="text-[24px] text-black leading-7 mb-[16px]">
-            Easily <strong>jazz up your content</strong> with emojis – discover,
-            copy, and paste in a single click <strong>for free!</strong>
+            Search emoji to copy in your email, newsletter, message or slack.
           </h2>
 
           <form
