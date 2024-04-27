@@ -64,12 +64,12 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           <Input type="text" name="searchTerm" />
         </form>
 
-        <div className="flex flex-row md-w-[100%] sm-w-[90%] w-[90%] mx-auto gap-[60px] mt-[32px] mb-[32px]">
-          <div className="w-[112px] items-center">
-            <div className="text-[88px] text-center">{emojiData.symbol}</div>
+        <div className="flex flex-row mx-auto gap-[10px] xs:gap-[30px] sm:gap-[60px] mt-[32px] mb-[32px] w-[90%]">
+          <div className="w-[88px] md-w-[112px] items-center">
+            <div className="text-[52px] md-text-[88px] text-center">{emojiData.symbol}</div>
             <CopyButton emoji={emojiData.symbol} />
           </div>
-          <div className="p-[20px] box-border flex-1">
+          <div className="p-[20px] box-border flex-1 pt-[10px]">
             <h2 className="text-[20px] font-extrabold">
               {nameFormatter(emojiData.name)}
             </h2>
@@ -86,7 +86,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
             Emoji you may like
           </h1>
 
-          <div className="flex gap-[44px] mt-[16px]">
+          <div className="flex gap-[0px] md:gap-[24px] lg:gap-[42px] mt-[16px] flex-wrap">
             {emojiData.relatedEmoji.map((data, idx) => (
               <StatelessEmojiBox
                 route={`/${data.slug}`}
