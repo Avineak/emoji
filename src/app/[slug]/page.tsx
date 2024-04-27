@@ -8,6 +8,7 @@ import {
   nameFormatter,
   shortNameToSlug,
 } from "root/utils";
+import ServerSearchInput from "root/components/ServerSearchInput";
 
 function getRandomRelatedEmojis({ params }: { params: { slug: string } }) {
   const emojiData = Emoji.find(
@@ -30,14 +31,7 @@ function getRandomRelatedEmojis({ params }: { params: { slug: string } }) {
   };
 }
 
-async function searchItem(formData: FormData) {
-  "use server";
-
-  const searchTerm = formData.get("searchTerm");
-  redirect(`/search?q=${searchTerm}`);
-}
-
-export const generateMetadata = ({ params } : any) => {
+export const generateMetadata = ({ params }: any) => {
   const emojiData = Emoji.find(
     (emoji) => shortNameToSlug(emoji.sn) === params.slug
   );
@@ -60,13 +54,13 @@ export default async function Blog({ params }: { params: { slug: string } }) {
         className="flex flex-col m-2 sm:mx-4 md:mx-8 lg:mx-12 xl:mx-16"
         style={{ height: "calc(100vh - 170px)" }}
       >
-        <form action={searchItem}>
-          <Input type="text" name="searchTerm" />
-        </form>
+        <ServerSearchInput />
 
         <div className="flex flex-row mx-auto gap-[10px] xs:gap-[30px] sm:gap-[60px] mt-[32px] mb-[32px] w-[90%]">
           <div className="w-[88px] md-w-[112px] items-center">
-            <div className="text-[52px] md:text-[88px] text-center">{emojiData.symbol}</div>
+            <div className="text-[52px] md:text-[88px] text-center">
+              {emojiData.symbol}
+            </div>
             <CopyButton emoji={emojiData.symbol} />
           </div>
           <div className="p-[20px] box-border flex-1 pt-[10px]">
