@@ -66,7 +66,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
 
         <div className="flex flex-row mx-auto gap-[10px] xs:gap-[30px] sm:gap-[60px] mt-[32px] mb-[32px] w-[90%]">
           <div className="w-[88px] md-w-[112px] items-center">
-            <div className="text-[52px] md-text-[88px] text-center">{emojiData.symbol}</div>
+            <div className="text-[52px] md:text-[88px] text-center">{emojiData.symbol}</div>
             <CopyButton emoji={emojiData.symbol} />
           </div>
           <div className="p-[20px] box-border flex-1 pt-[10px]">
