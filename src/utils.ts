@@ -25,12 +25,14 @@ export const pushBrowserHistory = (url: string) => {
 };
 
 export const shortNameToSlug = (name: string) => {
+  const symbolRegex = /[^a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=%]/g;
+
   const slug = name
     .toLowerCase()
     .split(" ")
     .filter((chunk) => !chunk.includes("&"))
     .join("-")
-    .replaceAll("’", "-");
+    .replace(symbolRegex, "-");
 
   return slug;
 };
