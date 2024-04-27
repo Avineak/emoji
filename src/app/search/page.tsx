@@ -17,7 +17,7 @@ const DEFAULT_EMOJI_LIST = emojiData.slice(0, 50);
 
 export default function Search() {
   const [search, setSearch] = useState("");
-  const [listedEmoji, setListedEmoji] = useState(DEFAULT_EMOJI_LIST);
+  const [listedEmoji, setListedEmoji] = useState<any[]>([]);
 
   const params = useSearchParams();
   const pathname = usePathname();
@@ -100,9 +100,7 @@ export default function Search() {
                 ))}
               </div>
             ) : (
-              <h5 className="text-left pl-[80px]">
-                Emoji not found...
-              </h5>
+              <h5 className="text-left pl-[80px]">Emoji not found...</h5>
             )}
           </div>
         </div>
