@@ -87,17 +87,23 @@ export default function Search() {
             }}
           />
           <div>
-            <div className="flex flex-row flex-wrap gap-[18px] md:mx-[70px] pt-[32px] justify-center">
-              {listedEmoji.map((emo, idx) => (
-                <div key={idx} className="text-black">
-                  <StatelessEmojiBox
-                    route={`/${shortNameToSlug(emo.sn)}`}
-                    emoji={emo.ch}
-                    key={idx}
-                  />
-                </div>
-              ))}
-            </div>
+            {listedEmoji?.length ? (
+              <div className="flex flex-row flex-wrap gap-[18px] md:mx-[70px] pt-[32px] justify-center">
+                {listedEmoji.map((emo, idx) => (
+                  <div key={idx} className="text-black">
+                    <StatelessEmojiBox
+                      route={`/${shortNameToSlug(emo.sn)}`}
+                      emoji={emo.ch}
+                      key={idx}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <h5 className="text-left pl-[80px]">
+                Emoji not found...
+              </h5>
+            )}
           </div>
         </div>
       </div>
