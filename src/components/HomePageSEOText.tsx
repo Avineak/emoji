@@ -71,12 +71,12 @@ export const HomePageSEOText = () => (
     <p>
       I was writing a lot of emails and newsletters, and it was always difficult
       to find good emojis for my content. I ended up building a website for
-      myself, and now I&apos;m making it public, hoping it will be helpful to
+      myself, and now I’m making it public, hoping it will be helpful to
       content writers like me. If you have any suggestions, feel free to reach
-      out to me here.
+      out to me <a href="https://share.hsforms.com/1zuZdlUfjRnmsmENTOThOQQrgjhv" style={{color: 'blue', textDecoration: 'underline'}}>here</a>.
     </p>
 
-    <h4 className="mb-[12px] mt-[24px]">
+    {/* <h4 className="mb-[12px] mt-[24px]">
       Some Frequently Asked Questions(FAQs) about emoji
     </h4>
 
@@ -133,8 +133,8 @@ export const HomePageSEOText = () => (
 
       <li className="list-decimal list-inside mb-[12px]">
         Any questions? <br />
-        <p className="ml-[22px]">Ask here</p>
+        <a href="https://share.hsforms.com/1zuZdlUfjRnmsmENTOThOQQrgjhv" className="ml-[22px]" style={{color: 'blue', textDecoration: 'underline'}}>Ask here</a>
       </li>
-    </ol>
+    </ol> */}
   </div>
 );
