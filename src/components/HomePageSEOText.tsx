@@ -1,6 +1,6 @@
 export const HomePageSEOText = () => (
   <div className="text-start mx-2 sm:m-4 md:mx-8 lg:mx-12 xl:mx-16">
-    <h4 className="mb-[12px] mt-[24px]">What is an emoji?</h4>
+    <h1 className="mb-[12px] mt-[16px]">What is an emoji?</h1>
     <p>
       An emoji is a pictogram, logogram, ideogram, or smiley embedded in text
       and used in electronic messages and web pages. The primary function of
@@ -8,7 +8,7 @@ export const HomePageSEOText = () => (
       conversation, as well as to replace words as part of a logographic system
     </p>
 
-    <h4 className="mb-[12px] mt-[24px]">What is emojijoy.com?</h4>
+    <h1 className="mb-[12px] mt-[16px]">What is emojijoy.com?</h1>
     <p>
       Emojijoy.com is a web tool that allows users to search, copy, and paste
       emojis with just a few mouse clicks. Users can search based on different
@@ -17,7 +17,7 @@ export const HomePageSEOText = () => (
       other emoji search websites.
     </p>
 
-    <h4 className="mb-[12px] mt-[24px]">How to use this website?</h4>
+    <h1 className="mb-[12px] mt-[16px]">How to use this website?</h1>
 
     <ol className="pl-[5px]">
       <li className="list-decimal list-inside mb-[12px]">
@@ -67,7 +67,7 @@ export const HomePageSEOText = () => (
       </li>
     </ol>
 
-    <h4 className="mb-[12px] mt-[24px]">How I built this website?</h4>
+    <h1 className="mb-[12px] mt-[16px]">How I built this website?</h1>
     <p>
       I was writing a lot of emails and newsletters, and it was always difficult
       to find good emojis for my content. I ended up building a website for
